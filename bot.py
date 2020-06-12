@@ -27,8 +27,8 @@ async def on_ready():
 async def on_member_join(member):
     guild = discord.utils.get(client.guilds, name=SERVER)
     print(guild.channels)
-    print(guild.channels.find(lambda x: x.name == 'general'))
-    general_channel = discord.utils.get(guild.channels, name="general")
+    print(guild.channels.find(lambda x: x.name == 'welcoming'))
+    general_channel = discord.utils.get(guild.channels, name="welcoming")
     hello_messages = ["Hello, sunshine! {}", "Howdy, partner! {}", "Hey, howdy, hi! {}", "Peek-a-boo! {}",
                       "Howdy-doody! {}", "Hey there, {}!", "I come in peace! {}", "Ahoy, matey! {}", "Hiya! {}",
                       "What’s crackin’? {}", "‘Ello, gov'nor! {}", "Here's {}. Say Hi!!", "Yo! {}", "Aloha! {}",
