@@ -29,7 +29,8 @@ async def on_member_join(member):
     general_channel = discord.utils.get(guild.channels, name="GENERAL")
     hello_messages = ["Hello, sunshine! {}", "Howdy, partner! {}", "Hey, howdy, hi! {}", "Peek-a-boo! {}",
                       "Howdy-doody! {}", "Hey there, {}!", "I come in peace! {}", "Ahoy, matey! {}", "Hiya! {}",
-                      "What’s crackin’? {}", "‘Ello, gov'nor! {}", "Here's {}. Say Hi!!", "Yo! {}", "Aloha! {}",
+                      "What’s crackin’? {}", "‘Ello, gov'nor! {}", "Here'"
+                                                                   "s {}. Say Hi!!", "Yo! {}", "Aloha! {}",
                       "Waddup {}! At least, we meet for the first time for the last time!", "Hola! {}", "Que Pasa! {}",
                       "Bonjour! {}", "Hallo! {}", "Ciao! {}", "Konnichiwa! {}"]
     await general_channel.send(random.choice(hello_messages).format(member.name))
@@ -39,7 +40,7 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == client.user:
         return
-    message.channel.send(message.content)
+    await message.channel.send(message.content)
 
 if __name__ == '__main__':
     client.run(TOKEN)
