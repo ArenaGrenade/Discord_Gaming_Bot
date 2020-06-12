@@ -22,6 +22,7 @@ async def on_ready():
     members = '\n - '.join([member.name for member in guild.members])
     print(f'Guild Members:\n - {members}')
 
+
 @client.event
 async def on_member_join(member):
     guild = discord.utils.get(client.guilds, name=SERVER)
@@ -32,6 +33,13 @@ async def on_member_join(member):
                       "Waddup {}! At least, we meet for the first time for the last time!", "Hola! {}", "Que Pasa! {}",
                       "Bonjour! {}", "Hallo! {}", "Ciao! {}", "Konnichiwa! {}"]
     await general_channel.send(random.choice(hello_messages).format(member.name))
+
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    message.channel.send(message.content)
 
 if __name__ == '__main__':
     client.run(TOKEN)
