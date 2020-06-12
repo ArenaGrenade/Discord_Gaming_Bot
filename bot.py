@@ -26,7 +26,6 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     guild = discord.utils.get(client.guilds, name=SERVER)
-    print(guild.channels)
     print(guild.channels.find(lambda x: x.name == 'welcoming'))
     general_channel = discord.utils.get(guild.channels, name="welcoming")
     hello_messages = ["Hello, sunshine! {}", "Howdy, partner! {}", "Hey, howdy, hi! {}", "Peek-a-boo! {}",
@@ -34,7 +33,8 @@ async def on_member_join(member):
                       "What’s crackin’? {}", "‘Ello, gov'nor! {}", "Here's {}. Say Hi!!", "Yo! {}", "Aloha! {}",
                       "At least, we meet for the first time for the last time! {}", "Hola! {}", "Que Pasa! {}",
                       "Bonjour! {}", "Hallo! {}", "Ciao! {}", "Konnichiwa! {}"]
-    await general_channel.send(random.choice(hello_messages).format(member.name))
+    welcome_message = random.choice(hello_messages).format(member.name)
+    await general_channel.send(welcome_message)
 
 
 @client.event
